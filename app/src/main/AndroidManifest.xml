@@ -15,10 +15,10 @@
         android:theme="@style/Theme.MealApp"
         tools:targetApi="31">
         <activity
-            android:name=".view.SecondActivity"
+            android:name="com.mealapp.view.SecondActivity"
             android:exported="false" />
         <activity
-            android:name=".view.MainActivity"
+            android:name="com.mealapp.view.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

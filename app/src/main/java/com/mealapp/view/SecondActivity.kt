@@ -1,23 +1,18 @@
-package com.example.mealapp.view
+package com.mealapp.view
 
 import android.content.ActivityNotFoundException
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
-import com.example.mealapp.R
+import com.mealapp.R
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import com.example.mealapp.viewmodel.MainViewModel
 import android.content.Intent
 import android.net.Uri
-import com.example.mealapp.model.MealResponse
-import com.example.mealapp.model.MealsItem
-import kotlin.properties.Delegates
 import android.os.Handler
 import android.os.Looper
 import android.widget.Button
 import android.widget.ImageView
-import android.widget.Toast
 import java.util.concurrent.Executors
 
 class SecondActivity : AppCompatActivity() {

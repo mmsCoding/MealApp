@@ -1,6 +1,6 @@
-package com.example.mealapp.networking
+package com.mealapp.networking
 
-import com.example.mealapp.model.MealResponse
+import com.mealapp.model.MealResponse
 import retrofit2.Call
 import retrofit2.http.*
 

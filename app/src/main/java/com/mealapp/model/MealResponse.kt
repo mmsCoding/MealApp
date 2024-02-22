@@ -1,4 +1,4 @@
-package com.example.mealapp.model
+package com.mealapp.model
 
 import com.google.gson.annotations.SerializedName
 
@@ -9,10 +9,10 @@ import com.google.gson.annotations.SerializedName
 data class MealResponse(
 
 	@field:SerializedName("meals")
-	val meals: List<MealsItem>
+	var meals: List<Meal>
 )
 
-data class MealsItem(
+data class Meal(
 
 	@field:SerializedName("strImageSource")
 	val strImageSource: Any,

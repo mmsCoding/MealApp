@@ -1,20 +1,15 @@
-package com.example.mealapp.view
+package com.mealapp.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.TextView
-import com.example.mealapp.R
-import com.example.mealapp.model.MealResponse
-import com.example.mealapp.viewmodel.MainViewModel
+import com.mealapp.R
+import com.mealapp.model.MealResponse
+import com.mealapp.viewmodel.MainViewModel
 import java.lang.StringBuilder
 import android.content.Intent
 import androidx.lifecycle.LiveData
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.mealapp.model.MealsItem
+import com.mealapp.model.Meal
 import kotlin.properties.Delegates
 
 class MainActivity : AppCompatActivity() {

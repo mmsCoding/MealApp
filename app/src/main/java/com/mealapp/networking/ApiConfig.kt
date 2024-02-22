@@ -1,4 +1,4 @@
-package com.example.mealapp.networking
+package com.mealapp.networking
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

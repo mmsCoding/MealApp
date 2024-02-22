@@ -1,11 +1,10 @@
-package com.example.mealapp.viewmodel
+package com.mealapp.viewmodel
 
-import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.mealapp.model.MealResponse
-import com.example.mealapp.networking.ApiConfig
+import com.mealapp.model.MealResponse
+import com.mealapp.networking.ApiConfig
 import retrofit2.Callback
 import retrofit2.Call
 import retrofit2.Response
