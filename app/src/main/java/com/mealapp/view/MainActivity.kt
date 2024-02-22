@@ -14,27 +14,29 @@ import kotlin.properties.Delegates
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var mainViewModel: MainViewModel
+    lateinit var mainViewModel: MainViewModel
 
-    private lateinit var btn1: Button
-    private lateinit var btn2: Button
-    private lateinit var btn3: Button
-    private lateinit var btn4: Button
-    private lateinit var btn5: Button
-    private lateinit var btn6: Button
-    private lateinit var btn7: Button
-    private lateinit var btn8: Button
-    private lateinit var btn9: Button
-    private lateinit var btn10: Button
-    private lateinit var btn11: Button
-    private lateinit var btn12: Button
-    private lateinit var btn13: Button
-    private lateinit var meal: MealsItem
-    private lateinit var meals: LiveData<MealResponse>
-    private var num by Delegates.notNull<Int>()
-    private lateinit var btns: Array<Button>
+    lateinit var btn1: Button
+    lateinit var btn2: Button
+    lateinit var btn3: Button
+    lateinit var btn4: Button
+    lateinit var btn5: Button
+    lateinit var btn6: Button
+    lateinit var btn7: Button
+    lateinit var btn8: Button
+    lateinit var btn9: Button
+    lateinit var btn10: Button
+    lateinit var btn11: Button
+    lateinit var btn12: Button
+    lateinit var btn13: Button
+    lateinit var meal: Meal
+    lateinit var meals: LiveData<MealResponse>
+    var num by Delegates.notNull<Int>()
+    lateinit var btns: Array<Button>
 
-
+    /**
+     * sets up the main view model, including buttons
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -65,9 +67,9 @@ class MainActivity : AppCompatActivity() {
 
         //setting the text of the buttons to the recipe names
         mainViewModel.mealData.observe(this) { mealData ->
-            val mList: List<MealsItem> = mealData.meals
-            for (m: MealsItem in mList) {
-                setButtonText(mealData, num, btns.elementAt(num))
+            val mList: List<Meal> = mealData.meals
+            for (m: Meal in mList) {
+                btns.elementAt(num).text = setButtonText(mealData, num)
                 num++
             }
         }
@@ -125,20 +127,19 @@ class MainActivity : AppCompatActivity() {
     }
 
     //sets the button text
-    private fun setButtonText(mealData: MealResponse, index: Int, btn: Button) {
-        val resultText = StringBuilder("")
+    fun setButtonText (mealData: MealResponse, index: Int): String {
+        var resultText = ""
 
         mealData.meals.let { meals ->
             meal = meals.elementAt(index)
-            resultText.append("${meal.strMeal}")
-            btn.text = resultText
-
+            resultText = "${meal.strMeal}"
         }
 
+        return resultText
     }
 
     //indicates which meal has been selected, and prepares to pass it to the second activity
-    private fun setMeal(mealData: MealResponse, index: Int): MealsItem {
+    fun setMeal(mealData: MealResponse, index: Int): Meal {
         mealData.meals.let { meals ->
             meal = meals.elementAt(index)
         }
@@ -146,7 +147,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     //sends the pertinent information about the recipe to the second activity
-    private fun sendMeal(number: Int){
+    fun sendMeal(number: Int){
         mainViewModel.mealData.observe(this) { mealData ->
             meal = setMeal(mealData, index = number)
 
