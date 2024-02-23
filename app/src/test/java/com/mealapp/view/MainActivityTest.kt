@@ -38,7 +38,22 @@ class MainActivityTest {
 
     @Test
     fun setMeal() {
+        //Given
+        val sut = MainActivity()
+
+        val testMeal= mockk<Meal>()
+        every { testMeal.strMeal } returns "Test"
+        val mealData = MealResponse(listOf<Meal>(testMeal))
+        val index = 0
+
+        //When
+        val result = sut.setMeal(mealData, index)
+
+        //Then
+        assertEquals("Test", result.strMeal, "set failed")
     }
+
+//Attempted to test sendMeal, was unable to due to my implementation
 
 //    @Test
 //    fun sendMeal() {
